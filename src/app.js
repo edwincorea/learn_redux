@@ -1,12 +1,10 @@
 import {createStore} from 'redux';
 
 //STEP 3 define reducers
-const reducer = (state=0, action) => {
+const reducer = (state={}, action) => {
     switch(action.type) {
-        case "INCREMENT":
-            return state + action.payload;
-        case "DECREMENT":
-            return state - 1;
+        case "POST_BOOK":
+            return state = action.payload;
     }
 
     return state;
@@ -21,7 +19,12 @@ store.subscribe(() => {
 });
 
 // STEP 2 create and dispatch actions
-store.dispatch({type:"INCREMENT", payload:1});
-store.dispatch({type:"INCREMENT", payload:1});
-store.dispatch({type:"DECREMENT"});
-store.dispatch({type:"DECREMENT"});
+store.dispatch({
+    type:"POST_BOOK",
+    payload: {
+        id: 1,
+        title:'this is the book title',
+        description: 'this is the book description',
+        price: 33.33
+    }
+});
