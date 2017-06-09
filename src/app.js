@@ -14,8 +14,10 @@ const reducer = (state={}, action) => {
 const store = createStore(
     reducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
 store.subscribe(() => {
-    console.log('current state is: ', store.getState());
+    console.log('Current state is: ', store.getState());
+    console.log('Current price is: ' + store.getState().price);
 });
 
 // STEP 2 create and dispatch actions
